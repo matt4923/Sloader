@@ -1,0 +1,67 @@
+﻿<Window x:Class="Sloader.WindowSwitchFileImportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setup Import Data" Height="350" Width="625">
+    <Grid Name="gridParent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <RadioButton Margin="3" Name="radCs1000" Checked="Radio_Check">CS1000</RadioButton>
+            <RadioButton Margin="3" Name="radSl100" Checked="Radio_Check">SL100/CS2100</RadioButton>
+            <RadioButton Margin="3" Name="rad5ess" Checked="Radio_Check">Lucent 5ESS</RadioButton>
+            <RadioButton Margin="3" Name="radEwsd" Checked="Radio_Check">EWSD</RadioButton>
+            <RadioButton Margin="3" Name="radHipath" Checked="Radio_Check">HiPath</RadioButton>
+            <RadioButton Margin="3" Name="radAvaya" Checked="Radio_Check">Avaya</RadioButton>
+
+            <Button Grid.Row="0" DockPanel.Dock="Right" Margin="3" Padding="5,3" HorizontalAlignment="Right" Name="btnPickFile" Click="btnPickFile_Click">
+                File to Import
+            </Button>
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <TabControl Name="tabControlMain">
+                <TabItem Header="Switch Report">
+                    <DataGrid Name="dgSwitchImportData" ItemsSource="{Binding}"></DataGrid>
+                </TabItem>
+                <TabItem Header="Associations" Name="tabAssociations">
+                    <Grid Name="gridAssoc">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="581*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel HorizontalAlignment="Stretch" Background="Aquamarine" Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" >
+                            <Label Margin="0,-3,0,0">EXPORT to:</Label>
+                            <RadioButton Name="radNewAvaya" Margin="10,3,10,0" Checked="NewSwitchRadioChange">Avaya CM</RadioButton>
+                            <RadioButton Name="radNewCisco" Margin="10,3,10,0" Checked="NewSwitchRadioChange">CUCM</RadioButton>
+                            <RadioButton Name="radNewAs5300" Margin="10,3,10,0" Checked="NewSwitchRadioChange">AS5300</RadioButton>
+                        </StackPanel>
+                        <ScrollViewer Grid.Row="1" Name="ScrollViewer1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" Grid.ColumnSpan="2">
+                            <DataGrid Name="dgAssoc" AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="2" >
+                                <DataGrid.Resources>
+                                    
+                                </DataGrid.Resources>
+                                <DataGrid.Columns>
+                                
+                                <DataGridTextColumn Header="New Switch Field" Binding="{Binding NewSwitchField}" Width="Auto"></DataGridTextColumn>
+                                    <DataGridComboBoxColumn Header ="Old Switch Field" x:Name="OldSwitchField" SelectedValueBinding="{Binding OldSwitchField, Mode=TwoWay}" 
+                                                             DisplayMemberPath="{Binding OldSwitchField}" Width="Auto">
+                                    </DataGridComboBoxColumn>
+                                    <DataGridTextColumn Header="Script" Binding="{Binding Path=Col3, Mode=TwoWay, ValidatesOnDataErrors=True}">
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+        </DockPanel>
+        <Button Grid.Row="2">Something Button</Button>
+    </Grid>
+</Window>

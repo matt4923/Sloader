@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sloader.Switches
+{
+    class SwitchProperties
+    {
+        public enum SwitchType
+        {
+            CS1000,
+            SL100,
+            fiveEss,
+            Ewsd,
+            Hipath,
+            Avaya,
+            Cisco,
+            AS5300
+        }
+
+        public enum CommonFields
+        {
+            DN,
+            LEN,
+            TYPE,
+            ClassOfService,
+            Options,
+            Key, 
+            Buttons
+        }
+
+        public enum CS1000Fields
+        {
+            DES,
+            TGAR,
+            ACD_PILOT,
+            CLID,
+            Int_Grp,
+            MADN,
+            KEY_DIAL_TONE_FEATURE
+        }
+    }
+}

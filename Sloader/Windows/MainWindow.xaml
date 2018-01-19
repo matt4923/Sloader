@@ -1,0 +1,58 @@
+﻿<Window x:Class="Sloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Switch Connection" Height="350" Width="625">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <Button Name="btnConnectNow" Width="100" DockPanel.Dock="Right" Click="btnConnectNow_Click" Margin="3" Padding="5,3">
+                Connect Now
+            </Button>
+            <Menu  Grid.Row ="0"  Name="menuMain" DockPanel.Dock="Left">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Exit" Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="_In Connection Settings">
+                    <MenuItem Header="_Setup in Connection" Click="MenuItem_Click_menuSetupConnection" Name="menuSetupConnection"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Import">
+                    <MenuItem Header="_Import from Switch File" Name="menuImportSwitchFile" Click="menuSwitchFileImport"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <TextBox Name="txtResult" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.Row="1"/>
+        <DockPanel LastChildFill="True" Grid.Row="2" HorizontalAlignment="Stretch">
+            <Button DockPanel.Dock="Right" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnSendCommand" Click="btnSendCommand_Click">
+                Run Command
+            </Button>
+            <TextBox Name="txtCommand" Margin="3" DockPanel.Dock="Left"></TextBox>
+        </DockPanel>
+        <DockPanel LastChildFill="True" Grid.Row="3" HorizontalAlignment="Stretch">
+            <Button DockPanel.Dock="Left" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnCustom1" Click="btnCustom1_Click">
+                Button 1
+            </Button>
+            <Button DockPanel.Dock="Left" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnCustom2" Click="btnCustom2_Click">
+                Button 2
+            </Button>
+            <Button DockPanel.Dock="Left" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnCustom3" Click="btnCustom3_Click">
+                Button 3
+            </Button>
+            <Button DockPanel.Dock="Left" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnCustom4" Click="btnCustom4_Click">
+                Button 4
+            </Button>
+            <Button DockPanel.Dock="Left" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnCustom5" Click="btnCustom5_Click">
+                Button 5
+            </Button>
+        </DockPanel>
+        <DockPanel Grid.Row="3" LastChildFill="True" HorizontalAlignment="Right">
+            <Button DockPanel.Dock="right" Margin="3" Padding="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnClearConsole" Click="btnClearConsole_Click">
+                Clear Console
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

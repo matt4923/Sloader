@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <myTable>
+    <IP>10.10.0.126</IP>
+    <Port>5022</Port>
+    <User>admin</User>
+    <Password>admin01</Password>
+  </myTable>
+</DocumentElement>

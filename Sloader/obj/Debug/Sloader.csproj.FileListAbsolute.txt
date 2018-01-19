@@ -1,0 +1,26 @@
+C:\Users\Matt\AppData\Local\Temporary Projects\Sloader\bin\Debug\Sloader.exe.config
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Sloader.exe.config
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Sloader.exe
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Sloader.pdb
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Renci.SshNet.dll
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Renci.SshNet.xml
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.csprojResolveAssemblyReference.cache
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\FrmManageSwitchConnection.baml
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\MainWindow.baml
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\WindowSwitchFileImportDialog.baml
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\FrmManageSwitchConnection.g.cs
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\WindowProgressBar.g.cs
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\WindowSwitchFileImportDialog.g.cs
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\App.g.cs
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader_MarkupCompile.cache
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader_MarkupCompile.lref
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Windows\WindowProgressBar.baml
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.g.resources
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.Properties.Resources.resources
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.csproj.GenerateResource.Cache
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.exe
+C:\Users\Matt\Documents\_SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.pdb
+D:\Google Drive\SourceCode\!PROJECTS\Sloader\Sloader\Sloader\bin\Debug\Sloader.exe.config
+D:\Google Drive\SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.exe
+D:\Google Drive\SourceCode\!PROJECTS\Sloader\Sloader\Sloader\obj\Debug\Sloader.pdb

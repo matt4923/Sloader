@@ -1,0 +1,44 @@
+﻿using System;
+using System.ComponentModel;
+using System.Data;
+
+
+namespace Sloader
+{
+    public abstract class SwitchImport
+    {
+        internal abstract string GetDelimeter(string file);
+        internal abstract void ParseSwitchFile(object sender, DoWorkEventArgs e);
+
+        private DataTable m_SwitchReport;
+        internal DataTable SwitchReport
+        {
+            get { return m_SwitchReport; }
+            set { m_SwitchReport = value; }
+        }
+
+        private string m_Delimeter;
+        internal string Delimeter
+        {
+            get { return m_Delimeter; }
+            set { m_Delimeter = value; }
+        }
+
+        private BackgroundWorker bw;
+
+        private void FinishedParsing(object sender, RunWorkerCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        internal void DoParsing(System.IO.StreamReader switchFile)
+        {
+            string fullFile = switchFile.ReadToEnd();
+            m_Delimeter = GetDelimeter(fullFile);
+            bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.DoWork += new DoWorkEventHandler(ParseSwitchFile);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(FinishedParsing);
+            bw.RunWorkerAsync();
+        }
+    }
+}

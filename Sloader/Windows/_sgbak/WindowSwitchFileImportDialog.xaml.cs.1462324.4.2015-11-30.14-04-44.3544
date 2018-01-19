@@ -1,0 +1,140 @@
+﻿using System.Windows;
+using System.Windows.Controls;
+using Microsoft.Win32;
+using Sloader.Switches;
+using System;
+using System.Data;
+
+namespace Sloader
+{
+    /// <summary>
+    /// Interaction logic for WindowSwitchFileImportDialog.xaml
+    /// </summary>
+    public partial class WindowSwitchFileImportDialog : Window
+    {
+        private SwitchProperties.SwitchType m_SwitchType;
+
+        public WindowSwitchFileImportDialog()
+        {
+            InitializeComponent();
+            NameAllRadioButtonsCorrectly();
+            SetupGridLookupTimer();
+            
+        }
+
+        private void NameAllRadioButtonsCorrectly()
+        {
+            rad5ess.Content = FIVE_ESS;
+            radCs1000.Content = CS1000;
+            radEwsd.Content = EWSD;
+            radSl100.Content = SL100;
+            radHipath.Content = HIPATH;
+
+            //fire radio event
+            radCs1000.IsChecked = true;
+        }
+
+        const string FIVE_ESS = "5ESS";
+        const string CS1000 = "CS1000";
+        const string EWSD = "EWSD";
+        const string SL100 = "SL100";
+        const string HIPATH = "HiPath";
+
+        private OpenFileDialog fd;
+        private void btnPickFile_Click(object sender, RoutedEventArgs e)
+        {
+
+            fd = new OpenFileDialog();
+            if (fd.ShowDialog() == true)
+            {
+                GridLookupTimer.Start();
+                System.IO.StreamReader switchFile;
+                switchFile = new System.IO.StreamReader(fd.FileName);
+                switch (m_SwitchType)
+                {
+                    case SwitchProperties.SwitchType.CS1000:
+                        Parsing.CS1000_TNB parser = new Parsing.CS1000_TNB(switchFile);
+                        parser.ParsingComplete += Parser_ParsingComplete;
+                        break;
+                    default:
+                        //nothing
+                        break;
+                }
+            }
+        }
+        private void Radio_Check(object sender, RoutedEventArgs e)
+        {
+            RadioButton rad = sender as RadioButton;
+            switch (rad.Content.ToString())
+            {
+                case FIVE_ESS:
+                    m_SwitchType = SwitchProperties.SwitchType.fiveEss;
+                    btnPickFile.Content = "5ESS Raw File Import";
+                    break;
+                case CS1000:
+                    m_SwitchType = SwitchProperties.SwitchType.CS1000;
+                    btnPickFile.Content = "TNB to Import";
+                    break;
+                case EWSD:
+                    m_SwitchType = SwitchProperties.SwitchType.Ewsd;
+                    btnPickFile.Content = "SDNDAT to Import";
+                    break;
+                case SL100:
+                    m_SwitchType = SwitchProperties.SwitchType.SL100;
+                    btnPickFile.Content = "QCUST to Import";
+                    break;
+                case HIPATH:
+                    m_SwitchType = SwitchProperties.SwitchType.Hipath;
+                    btnPickFile.Content = "HiPath Raw File Import";
+                    break;
+                default:
+                    MessageBox.Show("Switch type not handled");
+                    break;
+            }
+        }
+
+        #region Report Tab
+        internal System.Windows.Threading.DispatcherTimer GridLookupTimer;
+
+        private void SetupGridLookupTimer()
+        {
+            //This timer checks the m_TextForResultsWindow.  The tick event appends text from other threads to the results textbox
+            GridLookupTimer = new System.Windows.Threading.DispatcherTimer();
+            GridLookupTimer.Tick += GridLookupTimer_Tick;
+            GridLookupTimer.Interval = new TimeSpan(0, 0, 0, 1, 0); //1 sec
+        }
+
+        public DataTable gridTable;
+        private void GridLookupTimer_Tick(object sender, EventArgs e)
+        {
+            if(gridTable != null)
+            {
+                //dgSwitchImportData.DataContext = gridTable;
+                dgSwitchImportData.ItemsSource = gridTable.DefaultView;
+                GridLookupTimer.Stop();
+            }
+        }
+
+        private void Parser_ParsingComplete(object sender, SwitchImport.ParsingCompleteEventArgs e)
+        {
+            // This will happen when the parsing is complete.
+            var parser = (SwitchImport)sender;
+            gridTable = parser.SwitchReport;
+
+            //build associations tab
+            BuildAssociationsTab();
+        }
+
+        #endregion
+
+        #region Associations Tab
+        private void BuildAssociationsTab()
+        {
+            foreach(DataColumn col in gridTable.Columns)
+            {
+                //Load imported Data to drop down list
+            }
+        }
+        #endregion
+    } //WindowSwitchFileImportDialog
+}
